@@ -1,11 +1,11 @@
+import { RouterProvider } from "react-router";
 import "./App.scss";
+import { router } from "./Router";
 
 function App() {
   return (
     <>
-      <h1>Playpen Sans</h1>
-      <a>Life Savers</a>
-      <p>Libre Baskerville</p>
+      <RouterProvider router={router}></RouterProvider>
     </>
   );
 }
