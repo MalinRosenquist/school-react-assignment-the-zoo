@@ -1,6 +1,61 @@
-#root {
-  max-width: 1280px;
+@import "./styles/variables";
+
+// --- Mobile
+
+body {
+  line-height: 1.5;
+  background-color: $clr-main-bg;
+  font-family: $font-text;
+  color: $clr-text-dark;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+}
+
+h1 {
+  font-family: $font-header;
+  font-size: $font-size-xl;
+}
+
+a {
+  font-family: $font-link;
+  font-size: $font-size-lg;
+}
+
+button {
+  font-family: $font-link;
+  font-size: $font-size-m;
+  background-color: $clr-button-bg;
+  color: $clr-text-light;
+}
+
+// --- Tablet
+
+@media screen and (min-width: $breakpoint-tablet) {
+  h1 {
+    font-size: $font-size-xxl;
+  }
+
+  a {
+    font-size: $font-size-xl;
+  }
+
+  button {
+    font-size: $font-size-lg;
+  }
+}
+
+// --- Desktop
+
+@media screen and (min-width: $breakpoint-desktop) {
+  h1 {
+    font-size: $font-size-xxl;
+  }
+
+  a {
+    font-size: $font-size-xl;
+  }
+
+  button {
+    font-size: $font-size-lg;
+  }
 }
