@@ -1,0 +1,16 @@
+@import "../../styles/variables";
+
+.header {
+  background: $clr-header-bg;
+  text-align: center;
+  color: $clr-text-dark;
+  display: flex;
+  flex-direction: column;
+
+  .wave {
+    color: red;
+    width: 100%;
+    max-height: 80px;
+    height: auto;
+  }
+}

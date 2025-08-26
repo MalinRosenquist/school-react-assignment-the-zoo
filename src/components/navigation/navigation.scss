@@ -1,0 +1,14 @@
+@import "../../styles/variables";
+
+.nav-ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+
+  a {
+    text-decoration: none;
+    color: $clr-text-dark;
+    font-weight: 600;
+  }
+}
