@@ -2,6 +2,8 @@ import "./animals.scss";
 import { useEffect, useState } from "react";
 import { getAllAnimals } from "../services/animalService";
 import type { Animal } from "../models/Animal";
+import { useContext } from "react";
+import { AnimalContext } from "../contexts/AnimalContext";
 
 export const Animals = () => {
   const [animals, setAnimals] = useState<Animal[]>([]);
@@ -23,6 +25,7 @@ export const Animals = () => {
       getData();
     }
   }, []);
+  const { animals } = useContext(AnimalContext);
 
   console.log(animals);
 
