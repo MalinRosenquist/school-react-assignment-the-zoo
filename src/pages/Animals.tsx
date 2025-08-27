@@ -1,30 +1,9 @@
 import "./animals.scss";
-import { useEffect, useState } from "react";
-import { getAllAnimals } from "../services/animalService";
-import type { Animal } from "../models/Animal";
+import { Link } from "react-router";
 import { useContext } from "react";
 import { AnimalContext } from "../contexts/AnimalContext";
 
 export const Animals = () => {
-  const [animals, setAnimals] = useState<Animal[]>([]);
-
-  // Fetching animals from API or LocalStorage
-  useEffect(() => {
-    const savedAnimals = localStorage.getItem("animals");
-
-    if (savedAnimals) {
-      setAnimals(JSON.parse(savedAnimals));
-      console.log("Fetching from localstorage");
-    } else {
-      const getData = async () => {
-        const animals = await getAllAnimals();
-        localStorage.setItem("animals", JSON.stringify(animals));
-        setAnimals(animals);
-        console.log("Fetching from API");
-      };
-      getData();
-    }
-  }, []);
   const { animals } = useContext(AnimalContext);
 
   console.log(animals);
