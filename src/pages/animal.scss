@@ -1,0 +1,84 @@
+@import "../../src/styles/variables";
+
+.animal-info {
+  margin: 0 auto;
+  max-width: 800px;
+  border: 1px dotted brown;
+
+  h2 {
+    text-align: center;
+  }
+
+  dt {
+    font-weight: 600;
+  }
+
+  dd {
+    margin: 0 0 10px 5px;
+  }
+}
+
+.top-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.img-wrapper {
+  border: 1px solid blue;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+
+  img {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+  }
+}
+
+.info {
+  border: 1px solid green;
+}
+
+.feed-btn {
+  width: 100px;
+  height: 53px;
+  border-radius: 25px;
+  font-size: $font-size-m;
+  font-weight: 600;
+}
+
+.feed-btn:disabled {
+  background-color: rgb(190, 189, 189);
+  cursor: not-allowed;
+  border: 0;
+  color: $clr-text-dark;
+}
+
+.long-desc {
+  border: 1px solid maroon;
+  margin-top: 2rem;
+}
+
+// --- Tablet
+
+@media screen and (min-width: $breakpoint-tablet) {
+  .top-row {
+    flex-direction: row;
+  }
+}
+
+// --- Desktop
+
+@media screen and (min-width: $breakpoint-desktop) {
+  .card-info {
+    h2 {
+      font-size: $font-size-lg;
+    }
+
+    p {
+      font-size: $font-size-s;
+    }
+  }
+}
