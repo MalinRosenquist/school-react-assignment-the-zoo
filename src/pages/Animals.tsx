@@ -2,6 +2,7 @@ import "./animals.scss";
 import { Link } from "react-router";
 import { useContext } from "react";
 import { AnimalContext } from "../contexts/AnimalContext";
+import { handleImageError } from "../helpers/imageHelper";
 
 export const Animals = () => {
   const { animals } = useContext(AnimalContext);
@@ -30,7 +31,7 @@ export const Animals = () => {
             <div className="card-wrapper">
               <div className={`card-img-wrapper ${hungerStatus === "Mätt" ? "fed" : hungerStatus === "Snart dags att mata" ? "soon" : "hungry"}`}>
                 <Link to={`/animal/${a.id}`}>
-                  <img className="card-img" src={a.imageUrl} alt={a.name} />
+                  <img className="card-img" src={a.imageUrl} alt={a.name} onError={handleImageError} />
                 </Link>
               </div>
               <div className="card-info">
