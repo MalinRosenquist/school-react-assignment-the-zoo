@@ -14,7 +14,9 @@ export const Animals = () => {
         <li key={a.id}>
           <div className="card-wrapper">
             <div className="card-img-wrapper">
-              <img className="card-img" src={a.imageUrl} alt={a.name} />
+              <Link to={`/animal/${a.id}`}>
+                <img className="card-img" src={a.imageUrl} alt={a.name} />
+              </Link>
             </div>
             <div className="card-info">
               <h2>{a.name}</h2>
