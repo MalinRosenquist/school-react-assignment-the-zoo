@@ -7,8 +7,3 @@ export const getAllAnimals = async () => {
   const data = await get<Animal[]>(url);
   return data;
 };
-
-export const getAnimalById = async (id: string) => {
-  const data = await get<Animal>(`${url}` + `${id}`);
-  return data;
-};
