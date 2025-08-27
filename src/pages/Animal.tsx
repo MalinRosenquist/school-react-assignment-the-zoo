@@ -16,8 +16,21 @@ export const Animal = () => {
 
   // Check when last fed
   const lastFedTime = new Date(animal.lastFed).getTime();
-  const fourHours = 4 * 60 * 60 * 1000;
-  const canFeed = Date.now() - lastFedTime > fourHours;
+  const now = Date.now();
+  const fourHours = 10000;
+  const threeHours = 5000;
+  // const fourHours = 4 * 60 * 60 * 1000;
+  // const threeHours = 3 * 60 * 60 * 1000;
+
+  let hungerStatus = "Mätt";
+
+  if (now - lastFedTime > fourHours) {
+    hungerStatus = "Hungrig";
+  } else if (now - lastFedTime > threeHours) {
+    hungerStatus = "Snart dags att mata";
+  }
+
+  const isFedNow = now - lastFedTime > fourHours;
 
   console.log(animal.isFed);
   console.log(animal.lastFed);
@@ -26,12 +39,12 @@ export const Animal = () => {
     <section className="animal-info">
       <h2>{animal.name}</h2>
       <div className="top-row">
-        <div className="img-wrapper">
+        <div className={`img-wrapper ${hungerStatus === "Mätt" ? "fed" : hungerStatus === "Snart dags att mata" ? "soon" : "hungry"}`}>
           <img src={animal.imageUrl} alt={animal.name} />
         </div>
         <div className="info">
           <dl>
-            <dt>Latinnamn:</dt>
+            <dt>Latinskt namn:</dt>
             <dd>{animal.latinName}</dd>
             <dt>Födelseår:</dt>
             <dd>{animal.yearOfBirth}</dd>
@@ -40,7 +53,9 @@ export const Animal = () => {
               {new Date(animal.lastFed).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })} {new Date(animal.lastFed).toLocaleDateString()}
             </dd>
             <dt>Hungerstatus:</dt>
-            <dd>{animal.isFed ? "Mätt" : "Hungrig"}</dd>
+            <span>
+              {hungerStatus === "Mätt" ? "🟢" : hungerStatus === "Snart dags att mata" ? "🟡" : "🔴"} {hungerStatus}
+            </span>
           </dl>
           <button
             className="feed-btn"
@@ -50,7 +65,7 @@ export const Animal = () => {
                 payload: String(animal.id),
               })
             }
-            disabled={!canFeed}
+            disabled={!isFedNow}
           >
             Mata
           </button>
