@@ -21,13 +21,6 @@ a {
   font-size: $font-size-lg;
 }
 
-button {
-  font-family: $font-link;
-  font-size: $font-size-m;
-  background-color: $clr-button-bg;
-  color: $clr-text-light;
-}
-
 // --- Tablet
 
 @media screen and (min-width: $breakpoint-tablet) {
@@ -37,10 +30,6 @@ button {
 
   a {
     font-size: $font-size-xl;
-  }
-
-  button {
-    font-size: $font-size-lg;
   }
 }
 
@@ -53,9 +42,5 @@ button {
 
   a {
     font-size: $font-size-xl;
-  }
-
-  button {
-    font-size: $font-size-lg;
   }
 }
