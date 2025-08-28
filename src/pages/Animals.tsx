@@ -1,8 +1,8 @@
 import "./animals.scss";
-import { Link } from "react-router";
 import { useContext } from "react";
 import { AnimalContext } from "../contexts/AnimalContext";
 import { handleImageError } from "../helpers/imageHelper";
+import { StatusImage, type HungerStatus } from "../components/statusImage/StatusImage";
 
 export const Animals = () => {
   const { animals } = useContext(AnimalContext);
@@ -14,12 +14,10 @@ export const Animals = () => {
       {animals.map((a) => {
         const lastFedTime = new Date(a.lastFed).getTime();
         const now = Date.now();
-        const threeHours = 10000;
-        const fiveHours = 15000;
-        // const threeHours = 3 * 60 * 60 * 1000;
-        // const fiveHours = 5 * 60 * 60 * 1000;
+        const threeHours = 3 * 60 * 60 * 1000;
+        const fiveHours = 5 * 60 * 60 * 1000;
 
-        let hungerStatus = "Mätt";
+        let hungerStatus: HungerStatus = "Mätt";
         if (now - lastFedTime > fiveHours) {
           hungerStatus = "Hungrig";
         } else if (now - lastFedTime > threeHours) {
@@ -29,11 +27,14 @@ export const Animals = () => {
         return (
           <li key={a.id}>
             <div className="card-wrapper">
-              <div className={`card-img-wrapper ${hungerStatus === "Mätt" ? "fed" : hungerStatus === "Snart dags att mata" ? "soon" : "hungry"}`}>
-                <Link to={`/animal/${a.id}`}>
-                  <img className="card-img" src={a.imageUrl} alt={a.name} onError={handleImageError} />
-                </Link>
-              </div>
+              <StatusImage
+                className="card-img-wrapper"
+                imageUrl={a.imageUrl}
+                alt={a.name}
+                hungerStatus={hungerStatus}
+                to={`/animal/${a.id}`}
+                onError={handleImageError}
+              />
               <div className="card-info">
                 <h2>{a.name}</h2>
                 <span>

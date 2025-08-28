@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import { AnimalContext } from "../contexts/AnimalContext";
 import { AnimalsActionTypes } from "../reducers/AnimalReducer";
 import { handleImageError } from "../helpers/imageHelper";
+import { StatusImage, type HungerStatus } from "../components/statusImage/StatusImage";
 
 export const Animal = () => {
   const { id } = useParams<{ id: string }>();
@@ -18,12 +19,10 @@ export const Animal = () => {
   // Check when last fed
   const lastFedTime = new Date(animal.lastFed).getTime();
   const now = Date.now();
-  const fourHours = 10000;
-  const threeHours = 5000;
-  // const fourHours = 4 * 60 * 60 * 1000;
-  // const threeHours = 3 * 60 * 60 * 1000;
+  const fourHours = 4 * 60 * 60 * 1000;
+  const threeHours = 3 * 60 * 60 * 1000;
 
-  let hungerStatus = "Mätt";
+  let hungerStatus: HungerStatus = "Mätt";
   if (now - lastFedTime > fourHours) {
     hungerStatus = "Hungrig";
   } else if (now - lastFedTime > threeHours) {
@@ -38,9 +37,14 @@ export const Animal = () => {
   return (
     <section className="animal-info">
       <div className="top-row">
-        <div className={`img-wrapper ${hungerStatus === "Mätt" ? "fed" : hungerStatus === "Snart dags att mata" ? "soon" : "hungry"}`}>
-          <img src={animal.imageUrl} alt={animal.name} onError={handleImageError} />
-        </div>
+        <StatusImage
+          className="img-wrapper"
+          imageUrl={animal.imageUrl}
+          alt={animal.name}
+          hungerStatus={hungerStatus}
+          to={`/animal/${animal.id}`}
+          onError={handleImageError}
+        />
         <div className="info">
           <h2>{animal.name}</h2>
           <dl>
