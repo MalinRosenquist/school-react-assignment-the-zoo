@@ -5,10 +5,36 @@
   display: flex;
   justify-content: space-around;
   padding: 0;
+  margin: 0;
 
   a {
     text-decoration: none;
     color: $clr-text-dark;
     font-weight: 600;
   }
+}
+
+.link {
+  max-width: 100px;
+  max-height: 100;
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  .svg-text {
+    font-size: clamp(26px, 4vw, 42px);
+    // max-width: 200px;
+    // max-height: 100;
+    overflow: hidden;
+  }
+}
+
+a.active .link {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  transform: scale(1.2) rotate(-3deg);
 }
