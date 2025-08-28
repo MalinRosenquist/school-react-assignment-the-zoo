@@ -1,0 +1,19 @@
+@import "../../styles/variables";
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fed {
+  border-color: $clr-fed;
+}
+
+.soon {
+  border-color: $clr-soon;
+}
+
+.hungry {
+  border-color: $clr-hungry;
+}
