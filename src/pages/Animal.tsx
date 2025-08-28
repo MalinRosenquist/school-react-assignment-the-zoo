@@ -37,12 +37,12 @@ export const Animal = () => {
 
   return (
     <section className="animal-info">
-      <h2>{animal.name}</h2>
       <div className="top-row">
         <div className={`img-wrapper ${hungerStatus === "Mätt" ? "fed" : hungerStatus === "Snart dags att mata" ? "soon" : "hungry"}`}>
           <img src={animal.imageUrl} alt={animal.name} onError={handleImageError} />
         </div>
         <div className="info">
+          <h2>{animal.name}</h2>
           <dl>
             <dt>Latinskt namn:</dt>
             <dd>{animal.latinName}</dd>
@@ -53,9 +53,9 @@ export const Animal = () => {
               {new Date(animal.lastFed).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })} {new Date(animal.lastFed).toLocaleDateString()}
             </dd>
             <dt>Hungerstatus:</dt>
-            <span>
+            <dd>
               {hungerStatus === "Mätt" ? "🟢" : hungerStatus === "Snart dags att mata" ? "🟡" : "🔴"} {hungerStatus}
-            </span>
+            </dd>
           </dl>
           <button
             className="feed-btn"
@@ -71,7 +71,9 @@ export const Animal = () => {
           </button>
         </div>
       </div>
-      <div className="long-desc">{animal.longDescription}</div>
+      <div className="long-desc">
+        <p>{animal.longDescription}</p>
+      </div>
     </section>
   );
 };
