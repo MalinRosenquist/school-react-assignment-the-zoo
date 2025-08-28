@@ -6,11 +6,20 @@
   color: $clr-text-dark;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
   .wave {
-    color: red;
     width: 100%;
     max-height: 80px;
     height: auto;
+    margin-bottom: -1px;
   }
+}
+
+.h1 {
+  display: block;
+  margin: 0 auto;
+  max-width: 600px;
+  width: 100%;
+  height: auto;
 }
