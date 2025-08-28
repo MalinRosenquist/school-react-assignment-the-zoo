@@ -1,0 +1,10 @@
+@mixin button-style {
+  font-family: $font-link;
+  font-size: $font-size-m;
+  background-color: $clr-button-bg;
+  color: $clr-text-light;
+  border: 0;
+  border-radius: 25px;
+  font-weight: 500;
+  filter: drop-shadow(2px 2px 3px rgb(0, 0, 0));
+}
