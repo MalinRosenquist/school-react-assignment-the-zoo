@@ -15,7 +15,7 @@ export const Home = () => {
         </div>
         <div>
           <Link to={"/animals"}>
-            <button>Träffa alla djuren här!</button>
+            <span className="link-btn">Träffa alla djuren här!</span>
           </Link>
         </div>
         <div className="small-img-wrapper">
