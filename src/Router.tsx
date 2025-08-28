@@ -3,13 +3,13 @@ import { Home } from "./pages/Home";
 import { Animals } from "./pages/Animals";
 import { Layout } from "./pages/Layout/Layout";
 import { Animal } from "./pages/Animal";
-import { Error } from "./pages/Error";
+import { Error404 } from "./pages/Error404";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    errorElement: <Error />,
+    errorElement: <Error404 />,
     children: [
       {
         path: "/",
