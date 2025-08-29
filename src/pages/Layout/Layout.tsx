@@ -5,12 +5,12 @@ import { Footer } from "../../components/footer/Footer";
 
 export const Layout = () => {
   return (
-    <>
+    <div className="layout-wrapper">
       <Header />
       <main>
         <Outlet />
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
