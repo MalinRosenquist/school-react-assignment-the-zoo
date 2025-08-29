@@ -1,10 +1,10 @@
 import "./animal.scss";
 import { useContext } from "react";
 import { useParams } from "react-router";
-import { AnimalContext } from "../contexts/AnimalContext";
-import { AnimalsActionTypes } from "../reducers/AnimalReducer";
-import { handleImageError } from "../helpers/imageHelper";
-import { StatusImage, type HungerStatus } from "../components/statusImage/StatusImage";
+import { AnimalContext } from "../../contexts/AnimalContext";
+import { AnimalsActionTypes } from "../../reducers/AnimalReducer";
+import { handleImageError } from "../../helpers/imageHelper";
+import { StatusImage, type HungerStatus } from "../../components/statusImage/StatusImage";
 
 export const Animal = () => {
   const { id } = useParams<{ id: string }>();

@@ -1,9 +1,9 @@
 import "./animals.scss";
 import { useContext } from "react";
-import { AnimalContext } from "../contexts/AnimalContext";
-import { handleImageError } from "../helpers/imageHelper";
-import { StatusImage, type HungerStatus } from "../components/statusImage/StatusImage";
 import { Link } from "react-router";
+import { AnimalContext } from "../../contexts/AnimalContext";
+import { StatusImage, type HungerStatus } from "../../components/statusImage/StatusImage";
+import { handleImageError } from "../../helpers/imageHelper";
 
 export const Animals = () => {
   const { animals } = useContext(AnimalContext);

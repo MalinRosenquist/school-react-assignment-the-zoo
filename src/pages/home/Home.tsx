@@ -1,13 +1,13 @@
 import "./home.scss";
-import hedgehog from "../assets/images/hedgehog.jpg";
-import bunny from "../assets/images/bunny.jpg";
+import hedgehog from "../../assets/images/hedgehog.jpg";
+import bunny from "../../assets/images/bunny.jpg";
 import { Link } from "react-router";
 
 export const Home = () => {
   return (
     <section className="home-section">
       <div className="big-img-wrapper">
-        <img src={hedgehog} />
+        <img src={hedgehog} alt="En liten flicka som sitter i gräset och matar en igelkott" />
       </div>
       <div className="right-wrapper">
         <div className="intro-text">
@@ -19,7 +19,7 @@ export const Home = () => {
           </Link>
         </div>
         <div className="small-img-wrapper">
-          <img src={bunny} />
+          <img src={bunny} alt="En liten pojke som sitter på huk och matar en kanin med en morot" />
         </div>
       </div>
     </section>

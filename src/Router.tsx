@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router";
-import { Home } from "./pages/Home";
-import { Animals } from "./pages/Animals";
+import { Home } from "./pages/home/Home";
+import { Animals } from "./pages/animals/Animals";
 import { Layout } from "./pages/Layout/Layout";
-import { Animal } from "./pages/Animal";
-import { Error404 } from "./pages/Error404";
+import { Animal } from "./pages/animal/Animal";
+import { Error404 } from "./pages/error/Error404";
 
 export const router = createBrowserRouter([
   {
