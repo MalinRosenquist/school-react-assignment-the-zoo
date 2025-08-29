@@ -56,6 +56,8 @@ export const Animal = () => {
           </dl>
           <button
             className="feed-btn"
+            aria-disabled={!isFedNow}
+            title={!isFedNow ? "Du kan mata djuret igen när den är hungrig" : ""}
             onClick={() =>
               dispatch({
                 type: AnimalsActionTypes.FED_ANIMAL,
