@@ -5,6 +5,7 @@ import { AnimalContext } from "../../contexts/AnimalContext";
 import { AnimalsActionTypes } from "../../reducers/AnimalReducer";
 import { handleImageError } from "../../helpers/imageHelper";
 import { StatusImage, type HungerStatus } from "../../components/statusImage/StatusImage";
+import { Error404 } from "../error/Error404";
 
 export const Animal = () => {
   const { id } = useParams<{ id: string }>();
@@ -13,7 +14,7 @@ export const Animal = () => {
   const animal = animals.find((a) => a.id.toString() === id);
 
   if (!animal) {
-    return <p>Djuret måste ha rymt och kunde inte hittas!</p>;
+    return <Error404 />;
   }
 
   // Check when last fed
