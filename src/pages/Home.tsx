@@ -1,6 +1,6 @@
 import "./home.scss";
-import hedgehog from "../images/hedgehog.jpg";
-import bunny from "../images/bunny.jpg";
+import hedgehog from "../assets/images/hedgehog.jpg";
+import bunny from "../assets/images/bunny.jpg";
 import { Link } from "react-router";
 
 export const Home = () => {
