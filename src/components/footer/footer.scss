@@ -1,0 +1,28 @@
+@import "../../styles/variables";
+
+footer {
+  background-color: $clr-header-bg;
+  text-align: center;
+  margin: 0 auto;
+  height: auto;
+  width: 100%;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .wave {
+    width: 100%;
+    max-height: 90px;
+    height: auto;
+    margin-top: -1px;
+    transform: rotateX(180deg);
+  }
+
+  p {
+    font-size: $font-size-sm;
+    color: $clr-text-dark;
+    padding: 5px;
+  }
+}
