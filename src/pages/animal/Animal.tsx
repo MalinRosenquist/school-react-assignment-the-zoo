@@ -13,6 +13,7 @@ export const Animal = () => {
 
   const animal = animals.find((a) => a.id.toString() === id);
 
+  // If animal not found, show error
   if (!animal) {
     return <Error404 />;
   }
@@ -23,6 +24,7 @@ export const Animal = () => {
   const fourHours = 4 * 60 * 60 * 1000;
   const threeHours = 3 * 60 * 60 * 1000;
 
+  // Set hungerstatus based on time since last fed
   let hungerStatus: HungerStatus = "Mätt";
   if (now - lastFedTime > fourHours) {
     hungerStatus = "Hungrig";
@@ -30,10 +32,8 @@ export const Animal = () => {
     hungerStatus = "Snart dags att mata";
   }
 
+  // Used for a11y
   const isFedNow = now - lastFedTime > fourHours;
-
-  console.log(animal.isFed);
-  console.log(animal.lastFed);
 
   return (
     <section className="animal-info">
