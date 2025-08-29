@@ -16,13 +16,14 @@ function App() {
     const savedAnimals = localStorage.getItem("animals");
 
     if (savedAnimals) {
-      dispatch({ type: AnimalsActionTypes.SET_ANIMALS, payload: JSON.parse(savedAnimals) });
+      const animalsFromStorage = JSON.parse(savedAnimals);
+      dispatch({ type: AnimalsActionTypes.SET_ANIMALS, payload: animalsFromStorage });
       console.log("Fetching from localstorage");
     } else {
       const getData = async () => {
         const animals = await getAllAnimals();
         localStorage.setItem("animals", JSON.stringify(animals));
-        dispatch({ type: AnimalsActionTypes.SET_ANIMALS, payload: JSON.stringify(animals) });
+        dispatch({ type: AnimalsActionTypes.SET_ANIMALS, payload: animals });
         console.log("Fetching from API");
       };
       getData();

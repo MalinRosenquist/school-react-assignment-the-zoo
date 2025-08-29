@@ -7,10 +7,7 @@ export enum AnimalsActionTypes {
 }
 
 // Defines the action type
-export type AnimalsAction = {
-  type: AnimalsActionTypes;
-  payload: string;
-};
+export type AnimalsAction = { type: AnimalsActionTypes.SET_ANIMALS; payload: Animal[] } | { type: AnimalsActionTypes.FED_ANIMAL; payload: string };
 
 // Reducer function to handle changes to the animals state
 export const AnimalReducer = (animals: Animal[], action: AnimalsAction) => {
