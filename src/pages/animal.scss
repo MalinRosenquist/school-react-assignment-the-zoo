@@ -52,7 +52,8 @@
   border-radius: 50%;
   flex: 0 0 auto;
   align-self: center;
-  border: 5px solid;
+  border-width: 5px;
+  border-style: solid;
 }
 
 .feed-btn {
@@ -62,6 +63,8 @@
   line-height: 53px;
   float: right;
   cursor: pointer;
+
+  @include push-effect(2px);
 }
 
 .feed-btn:disabled {

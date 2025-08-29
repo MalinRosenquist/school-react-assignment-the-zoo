@@ -46,8 +46,12 @@
 
     .link-btn {
       @include button-style;
+      display: inline-block;
       padding: 20px;
       cursor: pointer;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+
+      @include push-effect($translateY: 2px);
     }
   }
 
