@@ -1,4 +1,4 @@
-@import "./styles/variables";
+@import "./variables";
 
 // --- Mobile
 
@@ -7,8 +7,10 @@ body {
   background-color: $clr-main-bg;
   font-family: $font-text;
   color: $clr-text-dark;
-  margin: 0 auto;
+  margin: 0;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {

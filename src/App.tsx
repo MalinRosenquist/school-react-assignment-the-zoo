@@ -1,5 +1,5 @@
 import { RouterProvider } from "react-router";
-import "./App.scss";
+import "./styles/App.scss";
 import { router } from "./Router";
 import { AnimalContext } from "./contexts/AnimalContext";
 import { useEffect, useReducer } from "react";
