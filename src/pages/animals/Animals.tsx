@@ -11,7 +11,7 @@ export const Animals = () => {
   console.log(animals);
 
   return (
-    <section>
+    <section className="animals-page">
       <h2 className="animals-heading">Träffa våra djur</h2>
       <div className="instructions">
         <p>Här bor alla våra gulliga djur! De blir hungriga ibland – precis som du. Håll utkik efter deras mat-status:</p>
