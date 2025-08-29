@@ -1,8 +1,25 @@
 @import "../../styles/variables";
 @import "../../styles/mixins";
 
-.animal-listing {
+.animals-heading {
+  text-align: center;
+  font-size: $font-size-lg;
+  margin-bottom: 30px;
+}
+
+.instructions {
+  margin: 0 auto;
+  max-width: 500px;
+  font-size: $font-size-sm;
+
+  ul {
+    list-style: none;
+  }
+}
+
+.animals-listing {
   list-style: none;
+  margin-top: 30px;
   display: grid;
   grid-template-columns: 1fr;
   gap: 50px;
@@ -65,7 +82,7 @@
   border-radius: 24px;
   flex-grow: 1;
 
-  h2 {
+  h3 {
     font-size: $font-size-m;
   }
 
@@ -77,9 +94,15 @@
 // --- Tablet
 
 @media screen and (min-width: $breakpoint-tablet) {
-  .animal-listing {
+  .animals-listing {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     justify-items: start;
+  }
+
+  .animals-heading {
+    text-align: center;
+    font-size: $font-size-xl;
+    margin-bottom: 30px;
   }
 }
 
@@ -87,8 +110,8 @@
 
 @media screen and (min-width: $breakpoint-desktop) {
   .card-info {
-    h2 {
-      font-size: $font-size-lg;
+    h3 {
+      font-size: $font-size-m;
     }
 
     p {
