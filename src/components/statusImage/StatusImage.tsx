@@ -10,13 +10,13 @@ type StatusImageProps = {
 };
 
 export const StatusImage = ({ imageUrl, alt, hungerStatus, onError, className = "" }: StatusImageProps) => {
-  // Rätt jämförelse
+  // Determine className based on hunger status
   const statusClass = hungerStatus === "Mätt" ? "fed" : hungerStatus === "Snart dags att mata" ? "soon" : "hungry";
 
+  // Combines className with optional class
   const wrapperClass = `${statusClass} ${className}`;
 
   const img = <img src={imageUrl} alt={alt} onError={onError} className="status-img" />;
 
-  // Returnerar JSX
   return <div className={wrapperClass}>{img}</div>;
 };
