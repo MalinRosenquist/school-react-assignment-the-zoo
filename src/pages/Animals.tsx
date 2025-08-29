@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { AnimalContext } from "../contexts/AnimalContext";
 import { handleImageError } from "../helpers/imageHelper";
 import { StatusImage, type HungerStatus } from "../components/statusImage/StatusImage";
+import { Link } from "react-router";
 
 export const Animals = () => {
   const { animals } = useContext(AnimalContext);
@@ -26,24 +27,19 @@ export const Animals = () => {
 
         return (
           <li key={a.id}>
-            <div className="card-wrapper">
-              <StatusImage
-                className="card-img-wrapper"
-                imageUrl={a.imageUrl}
-                alt={a.name}
-                hungerStatus={hungerStatus}
-                to={`/animal/${a.id}`}
-                onError={handleImageError}
-              />
-              <div className="card-info">
-                <h2>{a.name}</h2>
-                <span>
-                  {hungerStatus === "Mätt" ? "🟢" : hungerStatus === "Snart dags att mata" ? "🟡" : "🔴"} {hungerStatus}
-                </span>
-                <p>{a.shortDescription}</p>
-                <div className="card-status"></div>
+            <Link to={`/animal/${a.id}`} className="card-link">
+              <div className="card-wrapper">
+                <StatusImage className="card-img-wrapper" imageUrl={a.imageUrl} alt={a.name} hungerStatus={hungerStatus} onError={handleImageError} />
+                <div className="card-info">
+                  <h2>{a.name}</h2>
+                  <span>
+                    {hungerStatus === "Mätt" ? "🟢" : hungerStatus === "Snart dags att mata" ? "🟡" : "🔴"} {hungerStatus}
+                  </span>
+                  <p>{a.shortDescription}</p>
+                  <div className="card-status"></div>
+                </div>
               </div>
-            </div>
+            </Link>
           </li>
         );
       })}

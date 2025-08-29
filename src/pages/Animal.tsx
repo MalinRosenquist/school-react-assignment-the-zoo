@@ -37,14 +37,7 @@ export const Animal = () => {
   return (
     <section className="animal-info">
       <div className="top-row">
-        <StatusImage
-          className="img-wrapper"
-          imageUrl={animal.imageUrl}
-          alt={animal.name}
-          hungerStatus={hungerStatus}
-          to={`/animal/${animal.id}`}
-          onError={handleImageError}
-        />
+        <StatusImage className="img-wrapper" imageUrl={animal.imageUrl} alt={animal.name} hungerStatus={hungerStatus} onError={handleImageError} />
         <div className="info">
           <h2>{animal.name}</h2>
           <dl>
