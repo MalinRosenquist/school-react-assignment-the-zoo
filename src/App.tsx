@@ -10,21 +10,22 @@ function App() {
   // Set state of animals list with reducer
   const [animals, dispatch] = useReducer(AnimalReducer, []);
 
-  // Fetching animals from API or LocalStorage
-  // If local storage is empty, data will be fetched from an API
+  // On initial load, check if animal data exists in localStorage
+  // - If it exists, load from localStorage and reset feeding status if needed
+  // - If not, fetch data from API, store it in localStorage, and reset feeding status
   useEffect(() => {
     const savedAnimals = localStorage.getItem("animals");
 
     if (savedAnimals) {
       const animalsFromStorage = JSON.parse(savedAnimals);
       dispatch({ type: AnimalsActionTypes.SET_ANIMALS, payload: animalsFromStorage });
-      console.log("Fetching from localstorage");
+      dispatch({ type: AnimalsActionTypes.RESET_FED_STATUS });
     } else {
       const getData = async () => {
         const animals = await getAllAnimals();
         localStorage.setItem("animals", JSON.stringify(animals));
         dispatch({ type: AnimalsActionTypes.SET_ANIMALS, payload: animals });
-        console.log("Fetching from API");
+        dispatch({ type: AnimalsActionTypes.RESET_FED_STATUS });
       };
       getData();
     }
