@@ -4,7 +4,7 @@ import { NavLink } from "react-router";
 
 export const Navigation = () => {
   return (
-    <nav>
+    <nav aria-label="Navigation">
       <ul className="nav-ul">
         <li>
           <NavLink to="/" aria-label="Hem">
