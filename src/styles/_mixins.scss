@@ -6,5 +6,32 @@
   border: 0;
   border-radius: 25px;
   font-weight: 500;
-  filter: drop-shadow(2px 2px 3px rgb(0, 0, 0));
+  filter: drop-shadow(2px 2px 2px rgb(73, 73, 73));
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+@mixin hover-style {
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.5s ease-out;
+
+  &:hover {
+    background-color: darken($clr-button-bg, 5%);
+    box-shadow: 0 6px 8px $clr-info-bg;
+    transform: scale(1.03);
+  }
+}
+
+@mixin push-effect($translateY: 2px) {
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+
+  &:active {
+    transform: translateY($translateY);
+    box-shadow: none;
+  }
+}
+
+@mixin focus {
+  :focus-visible {
+    outline: 2px solid $clr-button-bg;
+    outline-offset: 4px;
+  }
 }
