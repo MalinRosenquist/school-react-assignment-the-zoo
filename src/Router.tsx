@@ -28,6 +28,6 @@ export const router = createBrowserRouter(
     },
   ],
   {
-    basename: import.meta.env.DEV ? "" : "/the-zoo-MalinRosenquist/",
+    basename: import.meta.env.DEV ? "" : "/school-react-assignment/the-zoo",
   }
 );
